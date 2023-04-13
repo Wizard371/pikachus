@@ -12,6 +12,11 @@
     overflow: auto;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 
 /* Header (baggrunds farve) */
 
@@ -40,6 +45,12 @@ header {
     margin: 0;
     font-family: 'Bebas Neue';
     letter-spacing: 6px;
+}
+
+@media screen and (max-width: 620px) {
+    #logo {
+        display: none
+    }
 }
 
 
@@ -78,13 +89,14 @@ a:visited {
 
 .intro-container {
     background-color: khaki;
-    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .image-container {
     max-width: 600px;
     margin: 0;
-    float: left;
     padding: 3%;
     box-sizing: border-box;
 }
@@ -98,7 +110,6 @@ a:visited {
 }
 
 .intro-text {
-    float: left;
     max-width: 600px;
     margin: 0;
     padding: 3%;
@@ -125,17 +136,60 @@ footer p {
 
 .gallery-container {
     background-color: khaki;
-    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .gallery-image {
-    width: 25%;
-    height: 360px;
-    float: left;
+    width: 300px;
+    height: 200px;
     padding: 5px;
     box-sizing: border-box;
     outline: 6px solid black;
     outline-offset: -5px;
+}
+
+
+/* Full Screen Image Modal */
+
+.modal {
+    z-index: 1;
+    display: none;
+    padding-top: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    position: absolute;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.close {
+    text-decoration: none;
+    float: right;
+    font-size: 60px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    padding-right: 3%;
+}
+
+#fullsize-image {
+    max-height: 85vh;
+    width: auto;
 }
 
 
@@ -144,10 +198,10 @@ footer p {
 .about-container {
     background-image: url('./images/background.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center;
+    /* opacity: 0.75; */
     overflow: auto;
-    background-size: 100%;
 }
 
 .about-h1 {
@@ -157,13 +211,14 @@ footer p {
 }
 
 .about-picture {
-    width: 35%;
-    height: 50%;
-    border-bottom: 2px solid black;
+    width: 20%;
+    height: 80%;
+    padding: 5px;
+    box-sizing: border-box;
     border-right: 2px solid black;
     margin-right: 7px;
+    position: relative;
     float: left;
-    display: block;
 }
 
 .about-p {
